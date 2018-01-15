@@ -1,2 +1,3 @@
 # go-astilectron
-go-gui
+
+powered by https://github.com/asticode/go-astilectron
