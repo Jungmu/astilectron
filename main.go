@@ -13,8 +13,8 @@ import (
 )
 
 // Constants
-const htmlAbout = `Welcome on <b>Astilectron</b> demo!<br>
-This is using the bootstrap and the bundler.`
+const htmlAbout = `Welcome on <b>Astilectron</b> calc!<br>
+This is study the go-astilectron.`
 
 // Vars
 var (
@@ -66,9 +66,9 @@ func main() {
 		OnWait: func(_ *astilectron.Astilectron, iw *astilectron.Window, _ *astilectron.Menu, _ *astilectron.Tray, _ *astilectron.Menu) error {
 			w = iw
 			go func() {
-				time.Sleep(5 * time.Second)
-				if err := bootstrap.SendMessage(w, "check.out.menu", "Don't forget to check out the menu!"); err != nil {
-					astilog.Error(errors.Wrap(err, "sending check.out.menu event failed"))
+				time.Sleep(1 * time.Second)
+				if err := bootstrap.SendMessage(w, "wellcome", "wellcome!"); err != nil {
+					astilog.Error(errors.Wrap(err, "sending wellcome event failed"))
 				}
 			}()
 			return nil
@@ -78,8 +78,12 @@ func main() {
 		WindowOptions: &astilectron.WindowOptions{
 			BackgroundColor: astilectron.PtrStr("#333"),
 			Center:          astilectron.PtrBool(true),
-			Height:          astilectron.PtrInt(700),
-			Width:           astilectron.PtrInt(700),
+			MinHeight:       astilectron.PtrInt(380),
+			MaxHeight:       astilectron.PtrInt(380),
+			Height:          astilectron.PtrInt(380),
+			MinWidth:        astilectron.PtrInt(350),
+			MaxWidth:        astilectron.PtrInt(350),
+			Width:           astilectron.PtrInt(350),
 		},
 	}); err != nil {
 		astilog.Fatal(errors.Wrap(err, "running bootstrap failed"))
