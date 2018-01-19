@@ -2,23 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/base.css"/>
     <link rel="stylesheet" href="static/lib/astiloader/astiloader.css">
     <link rel="stylesheet" href="static/lib/astimodaler/astimodaler.css">
     <link rel="stylesheet" href="static/lib/astinotifier/astinotifier.css">
-    <link rel="stylesheet" href="static/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/lib/font-awesome-4.7.0/css/font-awesome.min.css">    
 </head>
 <body>
-    <div class="left" id="dirs"></div>
-    <div class="right">
-        <div class="title"><span id="path"></span></div>
-        <div class="panel"><span class="stat" id="files_count"></span> file(s)</div>
-        <div class="panel"><span class="stat" id="files_size"></span> of file(s)</div>
-        <div class="panel" id="files_panel">
-            <div class="chart_title">Files repartition</div>
-            <div id="files"></div>
+    <div class="number-area">
+        <textarea id="edit"></textarea>
+    </div>
+    <div class="row btn-area">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-primary">C</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-primary">√</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-primary">x²</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-primary">÷</button>                        
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-secondary">1</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-secondary">2</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-secondary">3</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-primary">×</button>                        
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-secondary">4</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-secondary">5</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-secondary">6</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-primary">＋</button>                        
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-secondary">7</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-secondary">8</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-secondary">9</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-primary">－</button>                        
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 btn-padding">
+                    <button type="button" class="btn btn-secondary">0</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-secondary">.</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" class="btn btn-primary">=</button>                        
+                </div>
+            </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
     <script src="static/js/index.js"></script>
     <script src="static/lib/astiloader/astiloader.js"></script>
     <script src="static/lib/astimodaler/astimodaler.js"></script>

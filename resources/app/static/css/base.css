@@ -3,59 +3,43 @@
 }
 
 html, body {
-    background-color: #fff;
-    color: #333;
+    background-color: #333;    
+    color: #fff;
     height: 100%;
     margin: 0;
     width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    min-width: 300px;
 }
 
-.left {
-    background-color: #333;
+.number-area {
     color: #fff;
-    float: left;
+    float: top;
+    height: 50px;
+    overflow:unset;
+    padding-top: 20px;
+    width: 100%;
+}
+
+#edit {
+    background-color: #777;
+    resize: none;
     height: 100%;
-    overflow: auto;
-    padding: 15px;
-    width: 40%;
+    width: 100%;
 }
 
-.dir {
-    cursor: pointer;
-    padding: 3px;
+.btn {
+    width: 100%;
 }
 
-.dir .fa {
-    margin-right: 5px;
+.btn-area {
+    padding: 10px;
 }
 
-.right {
-    float: right;
-    height: 100%;
-    overflow: auto;
-    padding: 15px;
-    width: 60%;
-}
-
-.title {
-    font-size: 1.5em;
-    text-align: center;
-    word-wrap: break-word;
-}
-
-.panel {
-    background-color: #f1f1f1;
-    border: solid 1px #e1e1e1;
-    border-radius: 4px;
-    margin-top: 15px;
-    padding: 15px;
-    text-align: center;
-}
-
-.stat {
-    font-weight: bold;
-}
-
-.chart_title {
-    margin-bottom: 5px;
+.btn-padding {    
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
