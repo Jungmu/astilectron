@@ -4,14 +4,7 @@ let index = {
         c.innerHTML = html;
         asticode.modaler.setContent(c);
         asticode.modaler.show();
-    },
-    addFolder(name, path) {
-        let div = document.createElement("div");
-        div.className = "dir";
-        div.onclick = function() { index.explore(path) };
-        div.innerHTML = `<i class="fa fa-folder"></i><span>` + name + `</span>`;
-        document.getElementById("dirs").appendChild(div)
-    },
+    },    
     init: function() {
         // Init
         asticode.loader.init();
@@ -22,51 +15,77 @@ let index = {
         document.addEventListener('astilectron-ready', function() {
             // Listen
             index.listen();
-
-            // Explore default path
-            index.explore();
         })
     },
-    explore: function(path) {
-        // Create message
-        let message = {"name": "explore"};
-        if (typeof path !== "undefined") {
-            message.payload = path
-        }
+    clickNum: function(id) {
+        let textarea = document.getElementById("view");
+        textarea.value = textarea.value+id;
 
-        // Send message
-        asticode.loader.show();
+        let number = document.getElementById("num");
+        number.value = number.value+id; 
+    },
+    clickSymbol: function(id) {
+        let textarea = document.getElementById("view");
+        textarea.value = textarea.value+" "+id+" ";
+        index.sendNumber();
+        index.sendSymbol(id);
+    },
+    sendNumber: function() {
+        let message = {"name": "sendNum"};
+        
+        let number = document.getElementById("num");
+        message.payload = number.value;
+        
         astilectron.sendMessage(message, function(message) {
-            // Init
-            asticode.loader.hide();
+            // Check error
+            if (message.name === "error") {
+                asticode.notifier.error(message.payload);
+                return
+            }            
+        })
+        number.value = ""
+    },
+    sendSymbol: function(id) {
+        let message = {"name": "sendSymbol"};
+        message.payload = id;
+        astilectron.sendMessage(message, function(message) {
 
             // Check error
             if (message.name === "error") {
                 asticode.notifier.error(message.payload);
                 return
             }
+            
+        })
+    },    
+    reqResult: function() {
+        index.sendNumber();
 
-            // Process path
-            document.getElementById("path").innerHTML = message.payload.path;
+        let message = {"name": "result"};
 
-            // Process dirs
-            document.getElementById("dirs").innerHTML = ""
-            for (let i = 0; i < message.payload.dirs.length; i++) {
-                index.addFolder(message.payload.dirs[i].name, message.payload.dirs[i].path);
-            }
+        astilectron.sendMessage(message, function(message) {
+            // Check error
+            if (message.name === "error") {
+                asticode.notifier.error(message.payload);
+                return
+            }            
+        })
+    },
+    clear: function() {
+        let textarea = document.getElementById("view");
+        textarea.value = "";
 
-            // Process files
-            document.getElementById("files_count").innerHTML = message.payload.files_count;
-            document.getElementById("files_size").innerHTML = message.payload.files_size;
-            document.getElementById("files").innerHTML = "";
-            if (typeof message.payload.files !== "undefined") {
-                document.getElementById("files_panel").style.display = "block";
-                let canvas = document.createElement("canvas");
-                document.getElementById("files").append(canvas);
-                new Chart(canvas, message.payload.files);
-            } else {
-                document.getElementById("files_panel").style.display = "none";
-            }
+        let number = document.getElementById("num");
+        number.value = ""; 
+
+        let message = {"name": "clear"};
+        
+        astilectron.sendMessage(message, function(message) {
+            // Check error
+            if (message.name === "error") {
+                asticode.notifier.error(message.payload);
+                return
+            }            
         })
     },
     listen: function() {
@@ -76,8 +95,12 @@ let index = {
                     index.about(message.payload);
                     return {payload: "payload"};
                     break;
-                case "check.out.menu":
-                    asticode.notifier.info(message.payload);
+                case "resResult":
+                    index.clear();
+                    let textarea = document.getElementById("view");
+                    textarea.value = message.payload;
+                    let number = document.getElementById("num");
+                    number.value = message.payload;
                     break;
             }
         });

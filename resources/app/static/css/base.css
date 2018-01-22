@@ -22,11 +22,15 @@ html, body {
     width: 100%;
 }
 
-#edit {
+#view {
     background-color: #777;
     resize: none;
     height: 100%;
     width: 100%;
+    text-align: right;
+}
+#num {
+    visibility: hidden;
 }
 
 .btn {

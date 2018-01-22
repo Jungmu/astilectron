@@ -2,8 +2,7 @@ package main
 
 import (
 	"flag"
-	"time"
-
+	_ "time"
 	"encoding/json"
 
 	"github.com/asticode/go-astilectron"
@@ -22,6 +21,8 @@ var (
 	BuiltAt string
 	debug   = flag.Bool("d", false, "enables the debug mode")
 	w       *astilectron.Window
+	numbers []float64
+	symbols string
 )
 
 func main() {
@@ -62,15 +63,9 @@ func main() {
 				},
 				{Role: astilectron.MenuItemRoleClose},
 			},
-		}},
+		}},		
 		OnWait: func(_ *astilectron.Astilectron, iw *astilectron.Window, _ *astilectron.Menu, _ *astilectron.Tray, _ *astilectron.Menu) error {
 			w = iw
-			go func() {
-				time.Sleep(1 * time.Second)
-				if err := bootstrap.SendMessage(w, "wellcome", "wellcome!"); err != nil {
-					astilog.Error(errors.Wrap(err, "sending wellcome event failed"))
-				}
-			}()
 			return nil
 		},
 		MessageHandler: handleMessages,

@@ -11,75 +11,76 @@
 </head>
 <body>
     <div class="number-area">
-        <textarea id="edit"></textarea>
+        <textarea id="view"></textarea>
+        <textarea id="num"></textarea>
     </div>
     <div class="row btn-area">
         <div class="col-12">
             <div class="row">
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-primary">C</button>
+                    <button type="button" id="clear" class="btn btn-primary" onclick="index.clear()">C</button>
                 </div>
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-primary">√</button>
+                    <button type="button" id="√" class="btn btn-primary" onclick="index.clickSymbol(this.id)">√</button>
                 </div>
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-primary">x²</button>
+                    <button type="button" id="^2" class="btn btn-primary"onclick="index.clickSymbol(this.id)">x²</button>
                 </div>
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-primary">÷</button>                        
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-secondary">1</button>
-                </div>
-                <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-secondary">2</button>
-                </div>
-                <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-secondary">3</button>
-                </div>
-                <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-primary">×</button>                        
+                    <button type="button" id="/" class="btn btn-primary" onclick="index.clickSymbol(this.id)">÷</button>                        
                 </div>
             </div>
             <div class="row">
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-secondary">4</button>
+                    <button type="button" id="1" class="btn btn-secondary" onclick="index.clickNum(this.id)">1</button>
                 </div>
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-secondary">5</button>
+                    <button type="button" id="2" class="btn btn-secondary" onclick="index.clickNum(this.id)">2</button>
                 </div>
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-secondary">6</button>
+                    <button type="button" id="3" class="btn btn-secondary" onclick="index.clickNum(this.id)">3</button>
                 </div>
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-primary">＋</button>                        
+                    <button type="button" id="x" class="btn btn-primary" onclick="index.clickSymbol(this.id)">×</button>                        
                 </div>
             </div>
             <div class="row">
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-secondary">7</button>
+                    <button type="button" id="4" class="btn btn-secondary" onclick="index.clickNum(this.id)">4</button>
                 </div>
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-secondary">8</button>
+                    <button type="button" id="5" class="btn btn-secondary" onclick="index.clickNum(this.id)">5</button>
                 </div>
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-secondary">9</button>
+                    <button type="button" id="6" class="btn btn-secondary" onclick="index.clickNum(this.id)">6</button>
                 </div>
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-primary">－</button>                        
+                    <button type="button" id="+" class="btn btn-primary" onclick="index.clickSymbol(this.id)">＋</button>                        
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 btn-padding">
+                    <button type="button" id="7" class="btn btn-secondary" onclick="index.clickNum(this.id)">7</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" id="8" class="btn btn-secondary" onclick="index.clickNum(this.id)">8</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" id="9" class="btn btn-secondary" onclick="index.clickNum(this.id)">9</button>
+                </div>
+                <div class="col-3 btn-padding">
+                    <button type="button" id="-" class="btn btn-primary" onclick="index.clickSymbol(this.id)">－</button>                        
                 </div>
             </div>
             <div class="row">
                 <div class="col-6 btn-padding">
-                    <button type="button" class="btn btn-secondary">0</button>
+                    <button type="button" id="0" class="btn btn-secondary" onclick="index.clickNum(this.id)">0</button>
                 </div>
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-secondary">.</button>
+                    <button type="button" id="." class="btn btn-secondary" onclick="index.clickNum(this.id)">.</button>
                 </div>
                 <div class="col-3 btn-padding">
-                    <button type="button" class="btn btn-primary">=</button>                        
+                    <button type="button" id="result" class="btn btn-primary" onclick="index.reqResult()">=</button>                        
                 </div>
             </div>
         </div>
