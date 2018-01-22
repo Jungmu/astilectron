@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"strconv"
-	"fmt"
 
 	"github.com/asticode/go-astilectron"
 	"github.com/asticode/go-astilectron-bootstrap"
@@ -13,7 +12,6 @@ import (
 
 // handleMessages handles messages
 func handleMessages(_ *astilectron.Window, m bootstrap.MessageIn) (payload interface{}, err error) {
-	// var result float64
 	
 	switch m.Name {
 	case "sendNum":
@@ -39,33 +37,18 @@ func handleMessages(_ *astilectron.Window, m bootstrap.MessageIn) (payload inter
 	case "result":
 		switch symbols {
 		case "+":
-			fmt.Println(numbers[0])
-			fmt.Println(numbers[1])
 			result := numbers[0] + numbers[1]
 			bootstrap.SendMessage(w, "resResult", strconv.FormatFloat(result,'f',6,64)) 
 		case "-":
-			fmt.Println(numbers[0])
-			fmt.Println(numbers[1])
 			result := numbers[0] - numbers[1]
 			bootstrap.SendMessage(w, "resResult", strconv.FormatFloat(result,'f',6,64)) 
 		case "x":
-			fmt.Println(numbers[0])
-			fmt.Println(numbers[1])
 			result := numbers[0] * numbers[1]
 			bootstrap.SendMessage(w, "resResult", strconv.FormatFloat(result,'f',6,64)) 
 		case "/":
-			fmt.Println(numbers[0])
-			fmt.Println(numbers[1])
 			result := numbers[0] / numbers[1]
 			bootstrap.SendMessage(w, "resResult", strconv.FormatFloat(result,'f',6,64)) 
 		}
-		// for _,value := range numbers {
-		// 	result += value
-		// }
-		// if err := bootstrap.SendMessage(w, "about", strconv.FormatFloat(result,'f',6,64), func(m *bootstrap.MessageIn) {
-		
-		// }); err != nil {
-		// }
 	default:
 	}
 	return

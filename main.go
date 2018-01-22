@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	_ "time"
 	"encoding/json"
 
 	"github.com/asticode/go-astilectron"
